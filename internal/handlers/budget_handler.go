@@ -1,5 +1,3 @@
-// internal/handlers/budget_handler.go
-
 package handlers
 
 import (

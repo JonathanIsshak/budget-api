@@ -1,5 +1,3 @@
-// internal/server/server.go
-
 package server
 
 import (
@@ -26,9 +24,12 @@ func NewServer(db *sql.DB) *Server {
 
 func (s *Server) setupRoutes() {
 	budgetHandler := handlers.NewBudgetHandler(s.DB)
+	transactionHandler := handlers.NewTransactionHandler(s.DB)
+	categoryHandler := handlers.NewCategoryHandler(s.DB)
 
 	s.Router.HandleFunc("/api/budgets", budgetHandler.GetBudgets).Methods("GET")
-	// Define more routes here for other handlers
+	s.Router.HandleFunc("/api/transactions", transactionHandler.GetTransactions).Methods("GET")
+	s.Router.HandleFunc("/api/categories", categoryHandler.GetCategories).Methods("GET")
 }
 
 func (s *Server) RouterFunc() http.Handler {

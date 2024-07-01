@@ -1,5 +1,3 @@
-// cmd/budgeting-api/main.go
-
 package main
 
 import (
@@ -21,7 +19,7 @@ func main() {
 
 	// Initialize HTTP server
 	srv := server.NewServer(db)
-	addr := ":8080"
+	addr := ":8888"
 
 	// Start server
 	log.Printf("Server listening on %s", addr)
